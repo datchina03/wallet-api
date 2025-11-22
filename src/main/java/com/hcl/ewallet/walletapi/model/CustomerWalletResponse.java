@@ -1,5 +1,7 @@
 package com.hcl.ewallet.walletapi.model;
 
+import java.math.BigDecimal;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class CustomerWalletResponse {
 	private long customerId;
 	private String fullName;
-	private WalletInfo wallet;
+	private BigDecimal balance;
+	private String currency;
 	private String email;
 }

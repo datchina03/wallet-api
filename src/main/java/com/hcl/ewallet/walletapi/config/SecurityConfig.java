@@ -9,33 +9,28 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-@Configuration
+//@Configuration
 public class SecurityConfig {
 
-    private final JwtUtil jwtUtil;
+//    private final JwtUtil jwtUtil;
+//
+//    public SecurityConfig(JwtUtil jwtUtil) {
+//        this.jwtUtil = jwtUtil;
+//    }
 
-    public SecurityConfig(JwtUtil jwtUtil) {
-        this.jwtUtil = jwtUtil;
-    }
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        JwtAuthFilter jwtFilter = new JwtAuthFilter(jwtUtil);
-
-        http.csrf().disable()
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and()
-            .authorizeHttpRequests()
-                .requestMatchers("/auth/**").permitAll()
-                .requestMatchers("/h2-console/**").permitAll()
-                .requestMatchers("/actuator/health", "/actuator/info").permitAll()
-                .requestMatchers("/admin/**").permitAll()
-            .anyRequest().authenticated()
-            .and()
-            .headers().frameOptions().disable()
-            .and()
-            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-
-        return http.build();
-    }
+	/*
+	 * @Bean public SecurityFilterChain filterChain(HttpSecurity http) throws
+	 * Exception { JwtAuthFilter jwtFilter = new JwtAuthFilter(jwtUtil);
+	 * 
+	 * http.csrf().disable()
+	 * .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+	 * .and() .authorizeHttpRequests() .requestMatchers("/auth/**").permitAll()
+	 * .requestMatchers("/h2-console/**").permitAll()
+	 * .requestMatchers("/actuator/health", "/actuator/info").permitAll()
+	 * .anyRequest().authenticated() .and() .headers().frameOptions().disable()
+	 * .and() .addFilterBefore(jwtFilter,
+	 * UsernamePasswordAuthenticationFilter.class);
+	 * 
+	 * return http.build(); }
+	 */
 }

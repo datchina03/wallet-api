@@ -7,3 +7,12 @@ CREATE TABLE IF NOT EXISTS customers (
   currency VARCHAR(10),
   CONSTRAINT uq_customers_email UNIQUE (email)
 );
+
+-- Product Table
+CREATE TABLE IF NOT EXISTS product (
+  product_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  merchant_id BIGINT,
+  product_code VARCHAR(10),
+  product_name VARCHAR(100),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

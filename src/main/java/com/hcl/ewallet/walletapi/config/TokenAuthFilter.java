@@ -46,6 +46,6 @@ public class TokenAuthFilter extends OncePerRequestFilter {
 
     private boolean validateToken(String token) {
         // For demo — you can replace this with JWT validation logic
-        return "MY_SECRET_TOKEN".equals(token);
+        return "abc".equals(token);
     }
 }

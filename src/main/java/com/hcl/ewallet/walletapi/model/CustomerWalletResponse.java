@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class CustomerWalletResponse {
 	private long customerId;
 	private String fullName;
-	private BigDecimal balance;
+	private double balance;
 	private String currency;
 	private String email;
 }
